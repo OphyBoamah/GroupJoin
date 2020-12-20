@@ -11,11 +11,15 @@ import Register from './Register';
 function App() {
   const [showRejectionPage, setshowRejectionPage] = useState(false);
   const [showRegistrationPage, setshowRegistrationPage] = useState(false);
+  const [showHomePage, setShowHomePage] = useState(false);
   const pickedNo = () => {
     setshowRejectionPage(!showRejectionPage)
   }
   const pickedYes = () => {
     setshowRegistrationPage(!showRegistrationPage)
+  }
+  const homePage = () => {
+    setShowHomePage(!showHomePage)
   }
   return (
     <Box >
@@ -29,9 +33,9 @@ function App() {
         <Button bg="green.300" _hover={{background:"green.500"}} w={40} h={12} ml={4} onClick={()=>pickedNo()}>No</Button>
         </Flex>
       </Flex>
-      {showRejectionPage && (<WontJoin/>)}
+      {showRejectionPage && (<WontJoin homePage={homePage} showHomePage={showHomePage} showRegistrationPage={showRegistrationPage} />)}
       {showRegistrationPage && (<Register/>)}
-      
+      {showHomePage && (<App/>)}
       </Box>
     
   );

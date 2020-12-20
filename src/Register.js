@@ -8,7 +8,7 @@ const Register = () => {
         <Heading as="h3" fontSize="3xl" textAlign="center"  pb={4}>Almost there!!!</Heading>
         <Text textAlign="center" fontSize="xl" pb={4}>Fill this form with your details.</Text>
         <Input type="text" name="firstName" placeholder="First Name"/>
-        <Input type="text" name="lastName" placeholder="Last Name"/>
+        <Input type="text" name="lastName" placeholder="Last Name" my={4}/>
         <Input type="email" name="email" placeholder="Your Email" />
         <Button type="submit" color="#fff" bg="yellow.300" _hover={{background:"yellow.500"}}>Submit</Button>
      </Box>
