@@ -6,11 +6,13 @@ import Image1 from './Images/millionaire.jpg';
 import { useState } from 'react';
 import WontJoin from './WontJoin';
 import Register from './Register';
+import WillJoin from './WillJoin';
 
 
 function App() {
   const [showRejectionPage, setshowRejectionPage] = useState(false);
   const [showRegistrationPage, setshowRegistrationPage] = useState(false);
+  const [showWelcomePage, setShowWelcomePage] = useState(false);
   const [showHomePage, setShowHomePage] = useState(false);
   const pickedNo = () => {
     setshowRejectionPage(!showRejectionPage)
@@ -21,9 +23,11 @@ function App() {
   const homePage = () => {
     setShowHomePage(!showHomePage)
   }
+  const welcomeNewbies = () => {
+    setShowWelcomePage(!showWelcomePage)
+  }
   return (
-    <Box >
-      <Flex flexDir="column" align="center" justify="center" pt={28} display={showRejectionPage || showRegistrationPage ? 'none' : 'flex'}>
+    <Box ><Flex flexDir="column" align="center" justify="center" pt={28} display={showRejectionPage || showRegistrationPage ? 'none' : 'flex'}>
         <Image src={Image1} alt="millionaire_image" w="20%" />
       <Heading as="h1" fontSize="4xl" py={4}>Welcome to Phyllionaires' club!</Heading>
       <Text fontSize="xl">We create, raise and sustain billionaires.</Text>
@@ -34,12 +38,11 @@ function App() {
         </Flex>
       </Flex>
       {showRejectionPage && (<WontJoin homePage={homePage} showHomePage={showHomePage} showRegistrationPage={showRegistrationPage} />)}
-      {showRegistrationPage && (<Register/>)}
-      {showHomePage && (<App/>)}
+      {showRegistrationPage && (<Register showWelcomePage={showWelcomePage} showHomePage={showHomePage} showRejectionPage={showRejectionPage}/>)}
+      {showWelcomePage && (<WillJoin welcomeNewbies={welcomeNewbies} homePage={homePage} showHomePage={showHomePage} showRegistrationPage={showRegistrationPage} />)}
+      {showHomePage && (<App/> )}
       </Box>
-    
-  );
-}
-  
+      )}
+   
 
 export default App;
