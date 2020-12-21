@@ -5,13 +5,13 @@ import App from './App';
 import { Box, ChakraProvider } from "@chakra-ui/react"
 import reportWebVitals from './reportWebVitals';
 import { theme } from './Theme/theme';
+import Router from './routes';
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
     <React.StrictMode>
       <Box bg="gray.200" h="100vh">
-
-        <App />
+      <Router/>
       </Box>
   </React.StrictMode>
   </ChakraProvider>,
